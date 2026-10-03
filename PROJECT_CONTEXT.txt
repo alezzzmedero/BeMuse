@@ -1,0 +1,232 @@
+# Documento maestro — Tienda online Bemuse Brand
+
+**Fecha:** 2 de octubre de 2026  
+**Uso:** adjuntar este archivo al nuevo chat de Codex antes de iniciar el proyecto.
+
+## Instrucción principal para el nuevo chat
+
+Colabora con Alex para crear, paso a paso y con su aprobación, una tienda online para Bemuse Brand. Alex trabaja en VS Code con HTML, CSS y JavaScript. La clienta administra WordPress y WooCommerce desde su cuenta.
+
+**No empieces a crear ni modificar código, diseños, archivos, contenido, integraciones, plugins ni recursos visuales sin presentar primero una propuesta breve y esperar la aprobación explícita de Alex para ese elemento.** Antes de avanzar a un nuevo componente, página, funcionalidad o fase, vuelve a pedir aprobación. Puedes analizar archivos de forma no destructiva cuando Alex abra o adjunte la carpeta correspondiente.
+
+Comunícate en español, explica las decisiones con claridad y trabaja de forma ordenada, un elemento aprobado a la vez. No inventes datos del negocio ni detalles de marca que no estén en los materiales proporcionados.
+
+## Objetivo del proyecto
+
+Crear una tienda online con una interfaz propia, adaptable a móviles, tabletas y escritorio, mientras la clienta gestiona el catálogo y los pedidos desde WordPress y WooCommerce. Los productos publicados, editados, despublicados o eliminados en WooCommerce deben reflejarse correctamente en la tienda cuando se complete la integración.
+
+El proyecto está comenzando desde cero. Según Alex, el hosting y WordPress están configurados y WooCommerce parece estar preparado. Todavía hay que verificar los detalles técnicos antes de habilitar ventas reales.
+
+## Contexto confirmado
+
+- Marca: **Bemuse Brand**.
+- Sitio de WordPress compartido: `https://bremusebrand.com/`.
+- La clienta administra el sitio desde WordPress y WooCommerce.
+- Alex trabaja habitualmente en VS Code y quiere desarrollar con **HTML, CSS y JavaScript estándar**.
+- La tienda aún no tiene catálogo cargado.
+- En la captura compartida de WooCommerce aparecían **Stripe** y **PayPal** con estado “Activo”; WooPayments mostraba la opción “Install” y la ubicación del negocio aparecía como Estados Unidos.
+- Esos indicadores de la captura no prueban por sí solos que las cuentas estén conectadas, que los pagos funcionen o que el modo de producción esté listo. Verificar credenciales, país, moneda, modo de prueba y una compra de prueba antes de publicar.
+- Alex quiere entregar a la clienta una web que pueda administrar desde WordPress; no quiere que la clienta tenga que editar código.
+
+## Tecnologías y forma de trabajo
+
+- Frontend: HTML semántico, CSS y JavaScript vanilla.
+- Editor: VS Code.
+- Metodología CSS: **BEM estricta**. Usar nombres con el patrón `bloque__elemento--modificador`, por ejemplo `.product-card__price` y `.button--primary`. No mezclar convenciones de nombres.
+- No introducir React, Next.js, Tailwind, frameworks, librerías ni dependencias sin proponerlo y recibir aprobación.
+- Mantener el código legible, modular y fácil de entregar. Separar estructura, estilos, lógica y recursos visuales.
+- Una estructura inicial posible, que debe aprobarse antes de crearla, es:
+
+```text
+BeMuse/
+├── PROJECT_CONTEXT.md
+├── index/
+│    └──index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── main.js
+└── assets/
+    └── Identidad Visual/
+    └── Fotos para diseño
+```
+
+No crear esta estructura ni otros archivos hasta que Alex apruebe el comienzo del proyecto.
+
+## Diseño y marca
+
+- Alex adjuntará al nuevo chat una imagen con la **paleta de colores oficial**. Esperar esa imagen antes de definir o codificar colores.
+- Respetar estrictamente los colores de la paleta entregada. No añadir colores de marca por iniciativa propia. Si el contraste accesible exige ajustar o añadir un tono, explicar el problema y pedir aprobación antes del cambio.
+- Alex también proporcionará una carpeta con materiales de la clienta, como fotografías del negocio. Revisar esos materiales antes de proponer imágenes o contenido visual.
+- Conservar intactos los originales de la clienta. No borrar, reemplazar, editar, subir a servicios externos ni modificar imágenes sin aprobación.
+- La captura de referencia muestra una estética de bienestar/spa: hero fotográfico amplio con texto superpuesto, navegación discreta, sección de elementos destacados en imágenes circulares, bloque de valores sobre fotografía y llamadas a la acción.
+- Alex aprobó **provisionalmente esa estructura visual** para empezar a explorarla. Usarla como referencia de composición, no copiar logotipos, textos ni identidad de terceros. Adaptar las secciones a la oferta real de Bemuse Brand después de revisar sus materiales y pedir aprobación.
+- Vercel puede usarse opcionalmente para compartir una vista previa pública del prototipo. No es un CMS ni sustituye WordPress. No conectar cuentas, desplegar, cambiar DNS ni publicar sin aprobación. La plataforma final de producción aún debe decidirse.
+
+### Edición y reemplazo de imágenes en el código
+
+- Dejar comentarios claros en español junto a cada imagen editable para identificar qué sección usa la imagen y qué ruta cambiar.
+- Usar nombres descriptivos para los archivos, por ejemplo `hero-principal.webp` o `valores-marca.webp`.
+- Mantener los archivos originales de la clienta intactos y en su carpeta. No incrustar imágenes como base64 ni esconder las rutas en código difícil de localizar.
+- Preferir etiquetas `<img>` para imágenes con significado. Usar imágenes de fondo en CSS solo para elementos decorativos y dejar también un comentario junto a la ruta.
+
+Ejemplo en HTML:
+
+```html
+<!-- IMAGEN EDITABLE: imagen principal del hero. Cambia la ruta en src. -->
+<img
+  class="hero__image"
+  src="assets/cliente/hero-principal.webp"
+  alt="Descripción de la imagen"
+/>
+```
+
+Ejemplo en CSS:
+
+```css
+/* IMAGEN EDITABLE: fondo de la sección de valores. Cambia la ruta en url(). */
+.values {
+  background-image: url("../assets/cliente/valores-marca.webp");
+}
+```
+
+## Fuente oficial de requisitos de la clienta
+
+### Paleta oficial de colores
+
+Usar estrictamente estos colores de marca:
+
+- `#FECACA`
+- `#DF7883`
+- `#B8145D`
+- `#E3C1B4`
+
+No añadir ni cambiar colores de marca por iniciativa propia. Si la paleta presenta algún problema de contraste accesible, explicarlo y pedir aprobación antes de modificarla o añadir tonos.
+
+### Redes sociales oficiales
+
+- Instagram: https://www.instagram.com/bemuse_brand?stkn=MTE1MHdldGh0dzY5cg==
+- Facebook: https://www.facebook.com/share/1DgHcYKQtT/
+- WhatsApp: https://wa.me/+17047563334
+- TikTok: https://www.tiktok.com/@bemusebrand
+
+### Categorías de productos
+
+- Invisible
+- Accessories
+- Active
+- Recovery
+- Sculp
+
+## Funcionalidades de tienda conversadas
+
+### Administración desde WooCommerce
+
+- La clienta debe poder crear, editar, publicar y despublicar productos desde WooCommerce.
+- El escaparate debe mostrar los productos publicados con su información e imágenes vigentes.
+- Si un producto deja de estar publicado o se elimina, debe dejar de mostrarse en el catálogo público.
+- Mantener los precios, disponibilidad e información de producto provenientes de WooCommerce; no duplicar el catálogo manualmente en el frontend.
+
+### Experiencia de compra
+
+- Catálogo y presentación de productos.
+- Ficha de producto con imágenes, descripción, precio y disponibilidad, según los datos que la clienta proporcione.
+- Carrito que permita revisar productos y cantidades antes de pagar.
+- Checkout conectado con WooCommerce.
+- Pagos procesados mediante las pasarelas habilitadas en WooCommerce, como Stripe y PayPal, una vez verificadas.
+- Los pedidos y su estado deben quedar administrables desde WooCommerce.
+
+Estas funciones son el alcance conversado, no autorización para implementarlas todas de una vez. Presentar y aprobar cada flujo antes de desarrollarlo. No almacenar datos de tarjetas ni credenciales secretas en el frontend.
+
+## Integración pendiente de decisión
+
+La arquitectura de producción todavía no está decidida. Antes de integrar WooCommerce, presentar las opciones y explicar sus consecuencias:
+
+1. Construir el frontend como tema o plantillas dentro de WordPress.
+2. Mantener un frontend separado, por ejemplo desplegado en Vercel, que consuma la Store API de WooCommerce.
+
+En ambos casos, la administración del catálogo y los pedidos debe seguir en WordPress/WooCommerce. No elegir ni implementar una arquitectura sin aprobación. Si se decide usar una integración headless, revisar disponibilidad de API, sesiones de carrito, checkout, pasarelas, CORS y configuración del hosting antes de comprometer el diseño técnico.
+
+## Responsive
+
+La web debe adaptarse completamente a móvil, tableta y escritorio. Diseñar desde pantallas pequeñas y revisar, cuando Alex autorice esa tarea:
+
+- navegación y menús táctiles;
+- orden y legibilidad del contenido;
+- tarjetas, galería, catálogo, carrito y checkout;
+- formularios, botones y áreas táctiles;
+- imágenes, recortes y rendimiento en conexiones móviles;
+- ausencia de desbordamiento horizontal.
+
+No fijar un diseño solo para escritorio ni ocultar funciones esenciales en móvil.
+
+## Accesibilidad
+
+Trabajar con objetivo de conformidad **WCAG 2.2 nivel AA**, revisando los criterios pertinentes en cada elemento aprobado. Incluir:
+
+- HTML semántico, regiones y jerarquía de encabezados coherentes;
+- navegación completa con teclado, enlace para saltar al contenido y foco visible;
+- contraste suficiente con la paleta aprobada;
+- textos alternativos útiles para imágenes informativas y `alt=""` para imágenes decorativas;
+- nombres accesibles, etiquetas e instrucciones en controles y formularios;
+- errores comprensibles y asociados a sus campos;
+- estados que no dependan únicamente del color;
+- tamaño y separación adecuados de controles táctiles;
+- respeto por `prefers-reduced-motion` y evitar movimiento automático innecesario;
+- nombres accesibles y controles de teclado si se aprueba una galería o carrusel.
+
+No afirmar conformidad legal o total sin una revisión suficiente; informar cualquier limitación y pedir aprobación para correcciones que alteren el diseño o la paleta.
+
+## SEO y rendimiento
+
+Aplicar buenas prácticas de SEO técnico y contenido, sin prometer posiciones o resultados de búsqueda:
+
+- etiquetas `<title>` y descripciones únicas y útiles por página;
+- estructura semántica, un encabezado principal claro y jerarquía lógica;
+- contenido original, textos de productos descriptivos y URLs legibles;
+- enlaces internos claros, breadcrumbs si se aprueban y navegación rastreable;
+- textos alternativos descriptivos y nombres de archivo de imagen útiles;
+- imágenes optimizadas, dimensiones declaradas y carga diferida en imágenes fuera de pantalla;
+- atención a Core Web Vitals, peso de recursos y carga móvil;
+- metadatos sociales cuando corresponda;
+- datos estructurados de productos cuando la plataforma y los datos sean fiables;
+- sitemap, robots, canonical e indexación correctamente configurados en producción;
+- evitar duplicados, páginas rotas, contenido de prueba indexable y enlaces sin destino.
+
+No instalar plugins SEO ni modificar ajustes del sitio WordPress sin comparar opciones y obtener aprobación explícita. No compartir datos privados de la clienta en herramientas externas.
+
+## Animaciones, transiciones y diseño UI/UX
+
+- Usar las skills disponibles de los plugins de Codex Motion Design y UI UX Designer cuando la tarea aprobada incluya movimiento, transiciones, prototipos o diseño de componentes.
+- Skills pertinentes: `uiuxdesigner:microinteractions-motion`, `uiuxdesigner:component-design`, `uiuxdesigner:design-system-builder`, `uiuxdesigner:design-to-code` y `uiuxdesigner:prototyping`.
+- Priorizar CSS y JavaScript vanilla, de acuerdo con el stack acordado. Mantener las animaciones sutiles, funcionales, rápidas y coherentes con la marca.
+- Respetar `prefers-reduced-motion`, permitir el uso completo con teclado y evitar animaciones que distraigan, dificulten la lectura o afecten el rendimiento.
+- Si una interacción necesita una librería externa o un plugin adicional de Codex o WordPress, primero explicar qué aporta, su compatibilidad con el proyecto, impacto en accesibilidad, rendimiento y mantenimiento. Esperar aprobación antes de instalarlo o añadirlo.
+- No incorporar kits de interfaz que exijan React u otro framework sin aprobación expresa.
+
+## Skills de Codex pertinentes
+
+Usar solo cuando la etapa lo requiera, sin aplicar todas a la vez:
+
+- `uiuxdesigner:ecommerce-ux` para flujos y experiencia de compra.
+- `engineering-suite-taste:design-taste-frontend` para explorar una dirección visual aprobada.
+- `engineering-suite-taste:frontend-ui-engineering` para implementar interfaces responsivas.
+- `uiuxdesigner:accessibility-audit` para revisar accesibilidad.
+- `computer-use:computer-use` si Alex autoriza trabajar en el navegador con WordPress.
+- Skills de Vercel únicamente si Alex aprueba una vista previa o despliegue allí.
+
+No se ha solicitado instalar plugins adicionales de Codex. No instalar plugins o extensiones de WordPress sin explicar el motivo, mantenimiento, coste si aplica y obtener aprobación.
+
+## Datos pendientes
+
+Preguntar en el momento oportuno, antes de diseñar o integrar el elemento relacionado:
+
+- paleta oficial de colores;
+- carpeta de fotos y otros materiales de la clienta;
+- productos, categorías, textos, precios y políticas que se publicarán;
+- países, moneda, impuestos, envíos y devoluciones;
+- estado real de Stripe/PayPal y modo de operación;
+- arquitectura final: frontend dentro de WordPress o frontend separado;
+- páginas y navegación finales, identidad verbal y datos de contacto.
+
+No inventar respuestas a estos puntos. Mientras falten, pedir aprobación antes de usar texto o datos provisionales.
